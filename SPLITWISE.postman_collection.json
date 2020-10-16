@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "a6e46213-2e99-4164-80cc-546aa7ab14a8",
+		"name": "SPLITWISE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"emailId\":\"ka@gmail.com\",\r\n    \"phoneNo\":\"1234\",\r\n    \"name\":\"krish\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User by Phone number",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/users/fetch_user_data?phone_no=&email_id=ka@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"fetch_user_data"
+					],
+					"query": [
+						{
+							"key": "phone_no",
+							"value": ""
+						},
+						{
+							"key": "email_id",
+							"value": "ka@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post expsenses participants",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"teamExpenseAmount\" : \"400\",\r\n    \"description\" : \"test 2\",\r\n    \"participantDetails\" : [\r\n        {   \r\n            \"participantDetail\" : {\"emailId\":\"ka@gmail.com\"},\r\n            \"share\":\"1\",\r\n            \"contribution_exact\" : \"100\"\r\n\r\n        },\r\n        {   \r\n            \"participantDetail\" : {\"emailId\":\"ma@gmail.com\"},\r\n            \"share\":\"1\",\r\n            \"contribution_exact\" : \"300\"\r\n\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/expenses/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"expenses",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user balances",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/fetch_balance_data?user_id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"fetch_balance_data"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
