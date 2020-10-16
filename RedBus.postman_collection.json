@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "82782619-64a9-44df-8e48-b2ad6c13c096",
+		"name": "RedBus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get trips",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/trips?source=Maa&destination=Svk&journey_date=22.10.2020",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"trips"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "Maa"
+						},
+						{
+							"key": "destination",
+							"value": "Svk"
+						},
+						{
+							"key": "journey_date",
+							"value": "22.10.2020"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Seat layout of bus",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/trips/buses/view_seats?source=Maa&destination=Svk&bus_name=TAT&journey_date=22.10.2020.19.00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"trips",
+						"buses",
+						"view_seats"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "Maa"
+						},
+						{
+							"key": "destination",
+							"value": "Svk"
+						},
+						{
+							"key": "bus_name",
+							"value": "TAT"
+						},
+						{
+							"key": "journey_date",
+							"value": "22.10.2020.19.00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lock seats",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"source\" : \"Maa\",\r\n    \"destination\" : \"Svk\",\r\n    \"startTime\" : \"22.10.2020.19.00\",\r\n    \"selectedSeats\" : [{\r\n        \"seatName\" : \"1A\"\r\n    }]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/trips/buses/lock_seats",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"trips",
+						"buses",
+						"lock_seats"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
